@@ -1,0 +1,20 @@
+{
+    "name"     : "Debian",
+    "image"    : "mcr.microsoft.com/devcontainers/base:bullseye",
+    "features" : {
+        "ghcr.io/devcontainers/features/node:1" : {
+            "version" : "20"
+        }
+    },
+    "appPort"  : [
+        5173
+    ],
+    "mounts"   : [
+        "source=${localWorkspaceFolderBasename}-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume",
+        "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    ],
+    "runArgs"  : [
+        "--name",
+        "GeekyLifeHacks"
+    ]
+}

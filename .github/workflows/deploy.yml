@@ -1,0 +1,42 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('package.json') }}
+          path: |
+            .pnpm-store
+            node_modules
+            ~/.pnpm-store
+            ~/.npm
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build
+        run: pnpm build
+        env:
+          VITE_APP_CONTENTFUL_API_KEY: ${{ secrets.VITE_APP_CONTENTFUL_API_KEY }}
+          VITE_APP_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_APP_CONTENTFUL_SPACE_ID }}
+          VITE_APP_CONTENTFUL_ENVIRONMENT: ${{ secrets.VITE_APP_CONTENTFUL_ENVIRONMENT }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
