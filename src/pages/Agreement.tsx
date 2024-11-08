@@ -45,14 +45,12 @@ export const AgreementPage = () => {
         <Layout>
             <Header />
             <Layout.Content>
-                <section
-                    id='about'
-                    style={{
-                        display        : 'flex',
-                        flexDirection  : 'column',
-                        alignItems     : 'center',
-                        justifyContent : 'center',
-                    }}>
+                <section style={{
+                    display        : 'flex',
+                    flexDirection  : 'column',
+                    alignItems     : 'center',
+                    justifyContent : 'center',
+                }}>
                     <div
                         style={{
                             width         : isDesktop ? SECTION_WIDTH : '100%',

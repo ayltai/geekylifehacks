@@ -103,9 +103,11 @@ const Divider = ({
 );
 
 const ImageMask = ({
+    comingSoon,
     index,
 } : {
-    index : number,
+    comingSoon? : boolean,
+    index       : number,
 }) => {
     const { t, } = useTranslation();
 
@@ -116,7 +118,7 @@ const ImageMask = ({
             alignItems     : 'center',
             justifyContent : 'center',
         }}>
-            <Tag color={themeColor[5]}>{t('tags.coming_soon')}</Tag>
+            {comingSoon && <Tag color={themeColor[5]}>{t('tags.coming_soon')}</Tag>}
             <Typography.Title
                 style={{
                     marginTop    : 8,
@@ -146,6 +148,8 @@ export const HomePage = () => {
     const isDesktop = useMediaQuery('(min-width: 1000px)');
 
     const { t, } = useTranslation();
+
+    const handleOpenMacBrewer = () => window.open('https://macbrewer.geekylifehacks.com', '_blank');
 
     return (
         <Layout>
@@ -327,9 +331,14 @@ export const HomePage = () => {
                                         }}
                                         src={COVERS[index]}
                                         alt={t('sections.products.0.caption')}
+                                        onClick={handleOpenMacBrewer}
                                         preview={{
                                             visible : false,
-                                            mask    : <ImageMask index={index} />,
+                                            mask    : (
+                                                <ImageMask
+                                                    comingSoon={index !== 2}
+                                                    index={index} />
+                                            ),
                                         }} />
                                     {!isDesktop && (
                                         <div style={{
@@ -338,7 +347,9 @@ export const HomePage = () => {
                                             marginBottom    : 48,
                                             backgroundColor : '#000',
                                         }}>
-                                            <ImageMask index={index} />
+                                            <ImageMask
+                                                comingSoon={index !== 2}
+                                                index={index} />
                                         </div>
                                     )}
                                 </Col>
