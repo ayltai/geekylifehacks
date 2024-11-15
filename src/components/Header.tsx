@@ -1,5 +1,5 @@
 import { Anchor, Button, Layout, Typography, } from 'antd';
-import { useEffect, useState, } from 'react';
+import { type MouseEvent, type ReactNode, useEffect, useState, } from 'react';
 import { useNavigate, } from 'react-router-dom';
 import { useTranslation, } from 'react-i18next';
 import { useMediaQuery, } from 'usehooks-ts';
@@ -19,15 +19,20 @@ export const Header = ({
 
     const { t, } = useTranslation();
 
-    const handleScroll = () => {
-        if (window.scrollY > 0) {
-            setIsTop(false);
-        } else {
-            setIsTop(true);
-        }
-    };
+    const handleScroll = () => setIsTop(window.scrollY === 0);
 
     const handleClick = () => navigate('/');
+
+    const handleHashLinkClick = (e : MouseEvent<HTMLElement>, link : {
+        title : ReactNode,
+        href  : string,
+    }) => {
+        e.preventDefault();
+
+        document.getElementById(link.href)!.scrollIntoView({
+            behavior : 'smooth',
+        });
+    };
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -80,7 +85,7 @@ export const Header = ({
                             'solutions',
                         ].map(key => ({
                             key,
-                            href  : `#${key}`,
+                            href  : `${key}`,
                             title : (
                                 <Typography.Link style={{
                                     fontSize : '1rem',
@@ -89,7 +94,8 @@ export const Header = ({
                                     {t(`menu.${key}`)}
                                 </Typography.Link>
                             ),
-                        }))} />
+                        }))}
+                        onClick={handleHashLinkClick} />
                 )}
             </div>
         </Layout.Header>

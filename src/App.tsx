@@ -1,11 +1,15 @@
-import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
+import { createHashRouter, RouterProvider, } from 'react-router-dom';
 
-import { AgreementPage, HomePage, } from './pages';
+import { AgreementPage, HomePage, SecureZone, } from './pages';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path      : '/',
         Component : HomePage,
+    },
+    {
+        path      : '/products/securezone',
+        Component : SecureZone,
     },
     {
         path     : '/agreements',
@@ -17,4 +21,5 @@ const router = createBrowserRouter([
         ],
     },
 ]);
+
 export const App = () => <RouterProvider router={router} />;

@@ -3,6 +3,7 @@ import { BulbOutlined, RocketOutlined, SafetyOutlined, TeamOutlined, } from '@an
 import { Button, Col, Image, Layout, Row, Tag, Typography, } from 'antd';
 import type { ReactNode, } from 'react';
 import { useTranslation, } from 'react-i18next';
+import { ScrollRestoration, useNavigate, } from 'react-router-dom';
 import { useMediaQuery, } from 'usehooks-ts';
 
 import { Footer, Header, } from '../components';
@@ -147,14 +148,23 @@ const ImageMask = ({
 export const HomePage = () => {
     const isDesktop = useMediaQuery('(min-width: 1000px)');
 
-    const { t, } = useTranslation();
+    const navigate = useNavigate();
 
-    const handleOpenMacBrewer = () => window.open('https://macbrewer.geekylifehacks.com', '_blank');
+    const handleAboutClick = () => document.getElementById('about')!.scrollIntoView({
+        behavior : 'smooth',
+    });
+
+    const handleSolutionsClick = () => document.getElementById('solutions')!.scrollIntoView({
+        behavior : 'smooth',
+    });
+
+    const { t, } = useTranslation();
 
     return (
         <Layout>
             <Header isHome />
             <Layout.Content>
+                <ScrollRestoration />
                 <section
                     id='home'
                     style={{
@@ -170,7 +180,7 @@ export const HomePage = () => {
                         backgroundPosition   : 'center',
                         backgroundRepeat     : 'no-repeat',
                         backgroundAttachment : 'scroll',
-                    } }>
+                    }}>
                     <div style={{
                         width          : isDesktop ? SECTION_WIDTH : '100%',
                         height         : '100%',
@@ -202,10 +212,8 @@ export const HomePage = () => {
                             size='large'
                             type='primary'
                             shape='round'
-                            onClick={() => document.getElementById('about')!.scrollIntoView({
-                                behavior : 'smooth',
-                            })}>
-                            Find Out More
+                            onClick={handleAboutClick}>
+                            {t('actions.find_out_more')}
                         </Button>
                     </div>
                 </section>
@@ -240,9 +248,7 @@ export const HomePage = () => {
                             }}
                             size='large'
                             shape='round'
-                            onClick={() => document.getElementById('solutions')!.scrollIntoView({
-                                behavior : 'smooth',
-                            })}>
+                            onClick={handleSolutionsClick}>
                             Get Started
                         </Button>
                     </div>
@@ -319,41 +325,58 @@ export const HomePage = () => {
                         marginBottom : 150,
                     }}>
                         <Row>
-                            {[ ...Array(3).keys(), ].map(index => (
-                                <Col
-                                    key={index}
-                                    span={isDesktop ? 8 : 24}>
-                                    <Image
-                                        style={{
-                                            position : isDesktop ? undefined : 'relative',
-                                            maxWidth : '100%',
-                                            height   : 'auto',
-                                        }}
-                                        src={COVERS[index]}
-                                        alt={t('sections.products.0.caption')}
-                                        onClick={handleOpenMacBrewer}
-                                        preview={{
-                                            visible : false,
-                                            mask    : (
+                            {[ ...Array(3).keys(), ].map(index => {
+                                const handleClick = () => {
+                                    switch (index) {
+                                        case 0:
+                                            navigate('/products/securezone');
+                                            break;
+
+                                        case 2:
+                                            window.open('https://macbrewer.geekylifehacks.com', '_blank');
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+                                };
+
+                                return (
+                                    <Col
+                                        key={index}
+                                        span={isDesktop ? 8 : 24}>
+                                        <Image
+                                            style={{
+                                                position : isDesktop ? undefined : 'relative',
+                                                maxWidth : '100%',
+                                                height   : 'auto',
+                                            }}
+                                            src={COVERS[index]}
+                                            alt={t('sections.products.0.caption')}
+                                            onClick={handleClick}
+                                            preview={{
+                                                visible : false,
+                                                mask    : (
+                                                    <ImageMask
+                                                        comingSoon={index === 1}
+                                                        index={index} />
+                                                ),
+                                            }} />
+                                        {!isDesktop && (
+                                            <div style={{
+                                                width           : '100%',
+                                                padding         : 16,
+                                                marginBottom    : 48,
+                                                backgroundColor : '#000',
+                                            }}>
                                                 <ImageMask
                                                     comingSoon={index !== 2}
                                                     index={index} />
-                                            ),
-                                        }} />
-                                    {!isDesktop && (
-                                        <div style={{
-                                            width           : '100%',
-                                            padding         : 16,
-                                            marginBottom    : 48,
-                                            backgroundColor : '#000',
-                                        }}>
-                                            <ImageMask
-                                                comingSoon={index !== 2}
-                                                index={index} />
-                                        </div>
-                                    )}
-                                </Col>
-                            ))}
+                                            </div>
+                                        )}
+                                    </Col>
+                                );
+                            })}
                         </Row>
                     </div>
                 </section>

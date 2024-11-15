@@ -24,11 +24,11 @@ export const Footer = () => {
 
         return (
             <Button
-                size='small'
-                type='text'
                 style={{
                     color : '#fff',
                 }}
+                size='small'
+                type='text'
                 onClick={handleClick}>
                 {children}
             </Button>

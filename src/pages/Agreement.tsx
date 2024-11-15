@@ -2,7 +2,7 @@ import { documentToHtmlString, } from '@contentful/rich-text-html-renderer';
 import { Layout, Typography, } from 'antd';
 import { createClient, } from 'contentful';
 import { useEffect, useState, } from 'react';
-import { useParams, } from 'react-router-dom';
+import { ScrollRestoration, useParams, } from 'react-router-dom';
 import { useMediaQuery, } from 'usehooks-ts';
 
 import { Footer, Header, } from '../components';
@@ -45,6 +45,7 @@ export const AgreementPage = () => {
         <Layout>
             <Header />
             <Layout.Content>
+                <ScrollRestoration />
                 <section style={{
                     display        : 'flex',
                     flexDirection  : 'column',
