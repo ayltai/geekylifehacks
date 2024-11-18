@@ -35,6 +35,8 @@ jobs:
           VITE_APP_CONTENTFUL_API_KEY: ${{ secrets.VITE_APP_CONTENTFUL_API_KEY }}
           VITE_APP_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_APP_CONTENTFUL_SPACE_ID }}
           VITE_APP_CONTENTFUL_ENVIRONMENT: ${{ secrets.VITE_APP_CONTENTFUL_ENVIRONMENT }}
+      - name: Copy CNAME
+        run: cp CNAME dist/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -3,7 +3,7 @@ import { BulbOutlined, RocketOutlined, SafetyOutlined, TeamOutlined, } from '@an
 import { Button, Col, Image, Layout, Row, Tag, Typography, } from 'antd';
 import type { ReactNode, } from 'react';
 import { useTranslation, } from 'react-i18next';
-import { ScrollRestoration, useNavigate, } from 'react-router-dom';
+import { ScrollRestoration, useNavigate, } from 'react-router';
 import { useMediaQuery, } from 'usehooks-ts';
 
 import { Footer, Header, } from '../components';

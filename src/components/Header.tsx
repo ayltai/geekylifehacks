@@ -1,6 +1,6 @@
 import { Anchor, Button, Layout, Typography, } from 'antd';
 import { type MouseEvent, type ReactNode, useEffect, useState, } from 'react';
-import { useNavigate, } from 'react-router-dom';
+import { useNavigate, } from 'react-router';
 import { useTranslation, } from 'react-i18next';
 import { useMediaQuery, } from 'usehooks-ts';
 

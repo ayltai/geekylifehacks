@@ -1,4 +1,5 @@
-import { createHashRouter, RouterProvider, } from 'react-router-dom';
+import { createHashRouter, } from 'react-router';
+import { RouterProvider, } from 'react-router/dom';
 
 import { AgreementPage, HomePage, SecureZone, } from './pages';
 

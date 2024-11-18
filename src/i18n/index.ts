@@ -20,7 +20,7 @@ export const apply = ({
         fallbackLng       : fallbackLanguage,
         nsSeparator       : false,
         keySeparator      : false,
-        compatibilityJSON : 'v3',
+        compatibilityJSON : 'v4',
         interpolation     : {
             escapeValue : false,
         },

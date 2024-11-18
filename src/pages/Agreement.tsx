@@ -2,7 +2,7 @@ import { documentToHtmlString, } from '@contentful/rich-text-html-renderer';
 import { Layout, Typography, } from 'antd';
 import { createClient, } from 'contentful';
 import { useEffect, useState, } from 'react';
-import { ScrollRestoration, useParams, } from 'react-router-dom';
+import { ScrollRestoration, useParams, } from 'react-router';
 import { useMediaQuery, } from 'usehooks-ts';
 
 import { Footer, Header, } from '../components';
