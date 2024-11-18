@@ -65,10 +65,10 @@ export const SecureZone = () => {
                         </Typography.Text>
                         <Button
                             style={{
-                                margin     : 48,
-                                padding    : 32,
-                                fontSize   : '1.25rem',
-                                fontWeight : 600,
+                                margin          : 48,
+                                padding         : 32,
+                                fontSize        : '1.25rem',
+                                fontWeight      : 600,
                                 backgroundColor : 'rgb(44, 54, 22)',
                             }}
                             size='large'
@@ -77,32 +77,47 @@ export const SecureZone = () => {
                             onClick={handleDownload}>
                             {t('actions.download')}
                         </Button>
+                        <a
+                            style={{
+                                display        : 'flex',
+                                alignItems     : 'center',
+                                justifyContent : 'center',
+                            }}
+                            href='https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fayltai%2Fgeekylifehacks-ha-addons'
+                            target='_blank'
+                            rel='noreferrer noopener'>
+                            <img
+                                src='https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg'
+                                alt='Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.' />
+                        </a>
                     </div>
                 </section>
-                <section style={{
-                    display        : 'flex',
-                    flexDirection  : 'column',
-                    alignItems     : 'center',
-                    justifyContent : 'center',
-                }}>
-                    <div style={{
-                        width          : isDesktop ? PAGE_WIDTH : '100%',
-                        height         : '100%',
-                        paddingTop     : '8rem',
-                        paddingBottom  : '8rem',
+                <section
+                    style={{
                         display        : 'flex',
                         flexDirection  : 'column',
                         alignItems     : 'center',
                         justifyContent : 'center',
                     }}>
+                    <div
+                        style={{
+                            width          : isDesktop ? PAGE_WIDTH : '100%',
+                            height         : '100%',
+                            paddingTop     : '8rem',
+                            paddingBottom  : '8rem',
+                            display        : 'flex',
+                            flexDirection  : 'column',
+                            alignItems     : 'center',
+                            justifyContent : 'center',
+                        }}>
                         <Row style={{
                             marginTop    : 24,
                             marginBottom : 96,
                         }}>
-                            <Col span={12}>
+                            <Col span={15}>
                                 <div style={{
-                                    width              : 450,
-                                    height             : 450,
+                                    width              : 550,
+                                    height             : 550,
                                     backgroundImage    : 'url("../matt-jones-xpDHTc-pkog-unsplash.jpg")',
                                     backgroundSize     : 'cover',
                                     backgroundPosition : 'center',
@@ -115,8 +130,8 @@ export const SecureZone = () => {
                                     flexDirection  : 'column',
                                     justifyContent : 'center',
                                 }}
-                                span={12}>
-                                <Typography.Title level={2}>
+                                span={9}>
+                                <Typography.Title level={1}>
                                     {t('sections.products.0.tagline.0')}
                                 </Typography.Title>
                                 <Typography.Text style={{
@@ -137,8 +152,8 @@ export const SecureZone = () => {
                                     flexDirection  : 'column',
                                     justifyContent : 'center',
                                 }}
-                                span={12}>
-                                <Typography.Title level={2}>
+                                span={9}>
+                                <Typography.Title level={1}>
                                     {t('sections.products.0.tagline.1')}
                                 </Typography.Title>
                                 <Typography.Text style={{
@@ -147,10 +162,10 @@ export const SecureZone = () => {
                                     {t('sections.products.0.summary.1')}
                                 </Typography.Text>
                             </Col>
-                            <Col span={12}>
+                            <Col span={15}>
                                 <div style={{
-                                    width              : 450,
-                                    height             : 450,
+                                    width              : 550,
+                                    height             : 550,
                                     marginLeft         : 'auto',
                                     marginRight        : 0,
                                     backgroundImage    : 'url("../kutan-ural-MZPwImQUDM0-unsplash.jpg")',
@@ -163,10 +178,10 @@ export const SecureZone = () => {
                             marginTop    : 24,
                             marginBottom : 96,
                         }}>
-                            <Col span={12}>
+                            <Col span={15}>
                                 <div style={{
-                                    width              : 450,
-                                    height             : 450,
+                                    width              : 550,
+                                    height             : 550,
                                     backgroundImage    : 'url("../possessed-photography-zbLW0FG8XU8-unsplash.jpg")',
                                     backgroundSize     : 'cover',
                                     backgroundPosition : 'center',
@@ -179,8 +194,8 @@ export const SecureZone = () => {
                                     flexDirection  : 'column',
                                     justifyContent : 'center',
                                 }}
-                                span={12}>
-                                <Typography.Title level={2}>
+                                span={9}>
+                                <Typography.Title level={1}>
                                     {t('sections.products.0.tagline.2')}
                                 </Typography.Title>
                                 <Typography.Text style={{
@@ -219,13 +234,13 @@ export const SecureZone = () => {
                                         returnObjects : true,
                                     }) as string[]).map(plan => (
                                         <th
-                                            key={plan }
+                                            key={plan}
                                             scope='col'>
                                             <Typography.Title
                                                 style={{
                                                     fontWeight : 'bold',
                                                 }}
-                                                level={4}>
+                                                level={2}>
                                                 {plan}
                                             </Typography.Title>
                                         </th>
@@ -258,19 +273,19 @@ export const SecureZone = () => {
                                         {t('label.upgrade.plans.price')}
                                     </th>
                                     <td style={{
-                                        fontSize   : '2rem',
+                                        fontSize   : '2.5rem',
                                         fontWeight : 'bold',
                                     }}>
                                         {t('label.upgrade.plans.0.price')}
                                     </td>
                                     <td style={{
-                                        fontSize   : '2rem',
+                                        fontSize   : '2.5rem',
                                         fontWeight : 'bold',
                                     }}>
                                         {t('label.upgrade.plans.1.price')}
                                     </td>
                                     <td style={{
-                                        fontSize   : '2rem',
+                                        fontSize   : '2.5rem',
                                         fontWeight : 'bold',
                                     }}>
                                         {t('label.upgrade.plans.2.price')}
@@ -382,12 +397,12 @@ export const SecureZone = () => {
                                 </tr>
                                 <tr>
                                     <th
-                                        style={ {
+                                        style={{
                                             textAlign : 'end',
-                                        } }
+                                        }}
                                         scope='row'>
                                         <InfoText
-                                            title={ t('label.upgrade.rich_notifications_tooltip') }>{ t('label.upgrade.rich_notifications') }</InfoText>
+                                            title={t('label.upgrade.rich_notifications_tooltip')}>{t('label.upgrade.rich_notifications')}</InfoText>
                                     </th>
                                     <td>
                                         <CloseOutlined style={{
@@ -418,7 +433,7 @@ export const SecureZone = () => {
                                     }) as string[]).map((option, index) => (
                                         <td
                                             key={index}>
-                                            { option }
+                                            {option}
                                         </td>
                                     ))}
                                 </tr>
@@ -426,6 +441,9 @@ export const SecureZone = () => {
                                     <td />
                                     <td>
                                         <Button
+                                            style={{
+                                                backgroundColor : 'rgb(60, 74, 22)',
+                                            }}
                                             size='large'
                                             type='primary'
                                             onClick={handleDownload}>
@@ -434,6 +452,9 @@ export const SecureZone = () => {
                                     </td>
                                     <td>
                                         <Button
+                                            style={{
+                                                backgroundColor : 'rgb(60, 74, 22)',
+                                            }}
                                             size='large'
                                             type='primary'
                                             onClick={handleDownload}>
@@ -442,6 +463,9 @@ export const SecureZone = () => {
                                     </td>
                                     <td>
                                         <Button
+                                            style={{
+                                                backgroundColor : 'rgb(60, 74, 22)',
+                                            }}
                                             size='large'
                                             type='primary'
                                             onClick={handleDownload}>
