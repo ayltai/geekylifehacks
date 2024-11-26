@@ -38,8 +38,8 @@ const ICONS = [
 
 const COVERS = [
     'alan-j-hendry-KNt4zd8HPb0-unsplash.jpg',
-    'bao-menglong-R-Ghenm9OX8-unsplash.jpg',
     'christin-hume-Hcfwew744z4-unsplash.jpg',
+    'braden-collum-9HI8UJMSdZA-unsplash.jpg',
 ];
 
 const Heading = ({
@@ -332,8 +332,12 @@ export const HomePage = () => {
                                             navigate('/products/securezone');
                                             break;
 
-                                        case 2:
+                                        case 1:
                                             window.open('https://macbrewer.geekylifehacks.com', '_blank');
+                                            break;
+
+                                        case 2:
+                                            window.open('https://start.geekylifehacks.com', '_blank');
                                             break;
 
                                         default:
@@ -352,15 +356,11 @@ export const HomePage = () => {
                                                 height   : 'auto',
                                             }}
                                             src={COVERS[index]}
-                                            alt={t('sections.products.0.caption')}
+                                            alt={t(`sections.products.${index}.caption`)}
                                             onClick={handleClick}
                                             preview={{
                                                 visible : false,
-                                                mask    : (
-                                                    <ImageMask
-                                                        comingSoon={index === 1}
-                                                        index={index} />
-                                                ),
+                                                mask    : <ImageMask index={index} />,
                                             }} />
                                         {!isDesktop && (
                                             <div style={{
@@ -369,9 +369,7 @@ export const HomePage = () => {
                                                 marginBottom    : 48,
                                                 backgroundColor : '#000',
                                             }}>
-                                                <ImageMask
-                                                    comingSoon={index !== 2}
-                                                    index={index} />
+                                                <ImageMask index={index} />
                                             </div>
                                         )}
                                     </Col>
