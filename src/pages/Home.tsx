@@ -333,11 +333,11 @@ export const HomePage = () => {
                                             break;
 
                                         case 1:
-                                            window.open('https://macbrewer.geekylifehacks.com', '_blank');
+                                            window.open('https://macbrewer.geekylifehacks.com', '_blank','noopener');
                                             break;
 
                                         case 2:
-                                            window.open('https://start.geekylifehacks.com', '_blank');
+                                            window.open('https://start.geekylifehacks.com', '_blank', 'noopener');
                                             break;
 
                                         default:

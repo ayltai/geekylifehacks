@@ -14,7 +14,7 @@ export const SecureZone = () => {
 
     const { t, } = useTranslation();
 
-    const handleDownload = () => window.open('https://geekylifehacks.gitbook.io/securezone/', '_blank');
+    const handleDownload = () => window.open('https://geekylifehacks.gitbook.io/securezone/', '_blank', 'noopener');
 
     return (
         <Layout>

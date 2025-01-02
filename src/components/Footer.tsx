@@ -4,36 +4,36 @@ import { useNavigate, } from 'react-router';
 import { useTranslation, } from 'react-i18next';
 import { useMediaQuery, } from 'usehooks-ts';
 
-export const Footer = () => {
+const Link = ({
+    page,
+    children,
+} : {
+    page     : string,
+    children : ReactNode,
+}) => {
     const navigate = useNavigate();
 
+    const handleNavigate = (id : string) => navigate(`/agreements/${id}`);
+
+    const handleClick = () => handleNavigate(page);
+
+    return (
+        <Button
+            style={{
+                color : '#fff',
+            }}
+            size='small'
+            type='text'
+            onClick={handleClick}>
+            {children}
+        </Button>
+    );
+};
+
+export const Footer = () => {
     const { t, } = useTranslation();
 
-    const handleNavigate = (page : string) => navigate(`/agreements/${page}`);
-
     const isDesktop = useMediaQuery('(min-width: 1000px)');
-
-    const Link = ({
-        page,
-        children,
-    } : {
-        page     : string,
-        children : ReactNode,
-    }) => {
-        const handleClick = () => handleNavigate(page);
-
-        return (
-            <Button
-                style={{
-                    color : '#fff',
-                }}
-                size='small'
-                type='text'
-                onClick={handleClick}>
-                {children}
-            </Button>
-        );
-    };
 
     return (
         <Layout.Footer style={{

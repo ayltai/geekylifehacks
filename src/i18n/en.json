@@ -51,7 +51,7 @@
     "label.upgrade.video_capture"              : "Video capture",
     "label.upgrade.video_capture_tooltip"      : "See a video of what was happening during moving object recognition events",
     "label.upgrade.video_capture_option_1"     : "10 seconds",
-    "label.upgrade.video_capture_option_2"     : "60 seconds\n(with 30 seconds before\nand after the event)",
+    "label.upgrade.video_capture_option_2"     : "30 seconds\n(with 10s before\nand 20s after the event)",
     "label.upgrade.rich_notifications"         : "Rich notifications",
     "label.upgrade.rich_notifications_tooltip" : "Rich notifications include a photo preview that let you see exactly what triggered an event",
     "label.upgrade.customer_support"           : "Customer support",
