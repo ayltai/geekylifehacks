@@ -401,8 +401,7 @@ export const SecureZone = () => {
                                             textAlign : 'end',
                                         }}
                                         scope='row'>
-                                        <InfoText
-                                            title={t('label.upgrade.rich_notifications_tooltip')}>{t('label.upgrade.rich_notifications')}</InfoText>
+                                        <InfoText title={t('label.upgrade.rich_notifications_tooltip')}>{t('label.upgrade.rich_notifications')}</InfoText>
                                     </th>
                                     <td>
                                         <CloseOutlined style={{
@@ -412,6 +411,54 @@ export const SecureZone = () => {
                                     <td>
                                         <CheckOutlined style={{
                                             color : 'green',
+                                        }} />
+                                    </td>
+                                    <td>
+                                        <CheckOutlined style={{
+                                            color : 'green',
+                                        }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        style={{
+                                            textAlign : 'end',
+                                        }}
+                                        scope='row'>
+                                        <Typography.Text>{t('label.upgrade.video_recording_247')}</Typography.Text>
+                                    </th>
+                                    <td>
+                                        <CloseOutlined style={{
+                                            color : 'red',
+                                        }} />
+                                    </td>
+                                    <td>
+                                        <CloseOutlined style={{
+                                            color : 'red',
+                                        }} />
+                                    </td>
+                                    <td>
+                                        <CheckOutlined style={{
+                                            color : 'green',
+                                        }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        style={{
+                                            textAlign : 'end',
+                                        }}
+                                        scope='row'>
+                                        <InfoText title={t('label.upgrade.webhook_tooltip')}>{t('label.upgrade.webhook')}</InfoText>
+                                    </th>
+                                    <td>
+                                        <CloseOutlined style={{
+                                            color : 'red',
+                                        }} />
+                                    </td>
+                                    <td>
+                                        <CloseOutlined style={{
+                                            color : 'red',
                                         }} />
                                     </td>
                                     <td>
